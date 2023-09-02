@@ -1,0 +1,225 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: otf-font-awesome;
+  font-size: 12px;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
+}
+
+/* The whole bar */
+#waybar {
+    /*background: @bg;*/
+    background-color: #1b1f1c;
+    /*color: @light;*/
+    color: #f8f8f8;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    /*border-top: 8px transparent;*/
+    border-radius: 15px;
+    margin: 0px 0px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  padding: 0 0px;
+  color: #1b1f1c;
+  background-color: transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each workspace name */
+  border: none;
+  border-radius: 0;
+}
+
+#workspaces button.focused {
+  background-color: transparent;
+}
+#workspace button.hover {
+  background-color: transparent;
+}
+#workspaces button.active {
+  color: #a9c7bb;
+}
+
+#workspaces button.urgent {
+  background-color: #ff0400;
+}
+
+#window {
+  /* border-radius: 20px; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  color: #64727d;
+}
+
+/* Each module */
+#clock,
+#custom-clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#hyprland-window,
+#idle_inhibitor,
+#mpd,
+#custom-power-menu,
+#custom-spotify {
+  padding: 0px 7px;
+  color: #a9c7bb;
+  /* color: #bf616a; */
+  border-radius: 13px;
+  background-color: #495355;
+}
+
+#window,
+#workspaces {
+  border-radius: 10px;
+  padding: 0px 10px;
+  background-color: #495355;
+}
+
+#cpu {
+  color: #a9c7bb;
+  background-color: #495355;
+}
+
+#memory {
+  color: #a9c7bb;
+  background-color: #495355;
+}
+
+#custom-power-menu {
+  border-radius: 9.5px;
+  background-color: #1b242b;
+  border-radius: 7.5px;
+  padding: 0 0px;
+}
+
+#custom-launcher {
+  background-color: #1b242b;
+  color: #6a92d7;
+  border-radius: 7.5px;
+  padding: 0 0px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#pulseaudio {
+  color: #a9c7bb;
+}
+
+#clock {
+  color: #a9c7bb;
+  /* background-color: #14141e; */
+}
+
+@keyframes blink {
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: #abb2bf;
+  }
+}
+
+
+label:focus {
+  background-color: #000000;
+}
+
+#network {
+  color: #a9c7bb;
+}
+
+#network.disconnected {
+  color: #f53c3c;
+}
+
+#custom-media {
+  background-color: transparent;
+  color: #c8d2e0;
+  min-width: 10px;
+}
+
+#custom-media.custom-spotify {
+  background-color: transparent;
+}
+
+#custom-clock {
+  background-color: transparent;
+}
+
+#custom-media.custom-vlc {
+  background-color: transparent;
+}
+
+#temperature {
+  background-color: #f0932b;
+}
+
+#temperature.critical {
+  background-color: #eb4d4b;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+  background-color: transparent;
+}
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+#keyboard-state {
+  background: #97e1ad;
+  color: #000000;
+  padding: 0 0px;
+  margin: 0 5px;
+  min-width: 16px;
+}
+
+#keyboard-state > label {
+  padding: 0 0px;
+}
+
+#keyboard-state > label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#hyprland-window{
+  background-color: transparent;
+}

@@ -1,0 +1,240 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+    "position": "top",
+
+    "height": 42,
+    //"width": 1600,
+    
+    "margin-left": 3,
+    "margin-bottom": 3,
+    "margin-right": 3,
+    "margin-top": 3,
+
+    "spacing": 4, // Gaps between modules (4px)
+
+    "modules-left": [
+        "clock",
+        "hyprland/window"
+        //"temperature",
+        //"idle_inhibitor",
+    ],
+    "modules-center": [
+        "wlr/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "memory",
+        "cpu",
+        "pulseaudio",
+        "network"
+    ],
+
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+    
+    "custom/rofi": {
+        "format": "",
+        "tooltip": false,
+        "on-click-right": "nwg-drawer",
+        "on-click": "wofi --show run",
+        "on-click-middle": "pkill -9 wofi"
+    },
+
+    "clock": {
+        "format": "  {:%H:%M   %e %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "today-format": "<b>{}</b>"
+    },
+
+    "clock#date": {
+        "format": "⧗ {:%H:%M   %e %b}", // Icon: calendar-alt
+        //"format": "{:%I:%M %p  %A %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "today-format": "<b>{}</b>"
+    },
+
+    "clock#1": {
+        "format": " {:%a}",
+        "tooltip": false,
+        "on-click": "gsimplecal"
+    },
+    "clock#2": {
+        "format": " {:%d-%h-%Y}",
+        "tooltip": false,
+        "on-click": "gsimplecal"
+    },
+    "clock#3": {
+        "format": " {:%H:%M:%S %p}",
+        "tooltip": false,
+        "on-click": "gsimplecal"
+    },
+
+    "hyprland/window": {
+        "format": "<span foreground='#a9c7bb'> {}</span>"    
+    },
+
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": []
+        },
+        //"all-outputs": true,//
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {  
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    }, 
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 5
+    },
+
+    "memory": {
+        "format": "{percentage}% ",
+        "exec": "sh -c 'free -h | awk '/Mem:/ {print $3\"/\"$2\" (\"int(($3/$2)*100)\"%)\"}'"
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "{usage}% ",
+        "exec": "sh -c 'mpstat 1 1 | awk '/Average:/ {print 100 - $NF}'"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 3, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        //"format-source": "{volume}% ",
+        //"format-source-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname} ",
+        "format-linked": "{ifname} ",
+        "format": "",
+        "format-disconnected": "",
+        "format-alt": "{ipaddr}/{cidr}",
+        "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+        "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)",
+        "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
+        "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
+        "interval": 10
+    }
+
+    /*"temperature": {
+        // "thermal-zone": 1,
+        "interval": 4,
+        //"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": " {temperatureC}°C",
+        "format-critical": "  {temperatureC}°C",
+        "format": "{icon}  {temperatureC}°C",
+        "format-icons": ["", "", ""],
+        "max-length": 7,
+        "min-length": 7,
+        "on-click": "xsensors"
+    },*/
+        
+    /*"idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": "true"
+    },*/
+
+    /*"custom/pacman": {
+        "format": "<big>􏆲</big>  {}",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "alacritty -e 'paru'; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8,
+        "max-length": 5,
+        "min-length": 3
+    },*/
+
+
+    /*"custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "wlogout"
+    },*/
+
+    /*"mpd": {
+        "max-length": 25,
+        "format": "<span foreground='#bb9af7'></span> {title}",
+        "format-paused": " {title}",
+        "format-stopped": "<span foreground='#bb9af7'></span>",
+        "format-disconnected": "",
+        "on-click": "mpc --quiet toggle",
+        "on-click-right": "mpc update; mpc ls | mpc add",
+        "on-click-middle": "alacritty -e ncmpcpp",
+        "on-scroll-up": "mpc --quiet prev",
+        "on-scroll-down": "mpc --quiet next",
+        "smooth-scrolling-threshold": 5,
+        "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+    },*/
+
+    /*"custom/title": {
+        "format": "{}",
+        "interval": 0,
+        "return-type": "json",
+        //"max-length": 35,
+        "tooltip": false
+    }*/
+
+    /*"custom/title#name": {
+        "format": "{}",
+        "interval": 0,
+        "return-type": "json",
+
+        "max-length": 35,
+        "exec": "$HOME/.scripts/title"
+    },*/
+
+    /*"custom/keyboard": {
+        "format": " {}",
+        "interval": 1,
+        "exec": "$HOME/.config/waybar/get_kbdlayout.sh"
+    },*/
+
+    /*"custom/media": {
+        "exec": "/home/kosero/.config/waybar/scripts/mpris.sh",
+        "interval": 5,
+        "on-click": "waybar-msg custom/media refresh"
+    },*/
+
+}
+
+
