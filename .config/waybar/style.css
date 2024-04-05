@@ -1,225 +1,128 @@
-* {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: otf-font-awesome;
-  font-size: 12px;
-  font-weight: 800;
-  margin: 0;
-  padding: 0;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-}
+/* -----------------------------------------------------
+ * waybar 
+ * ----------------------------------------------------- */
 
-
-/* Reset all styles */
-* {
+ * {
+    font-family: "Noto Sans Regular";
     border: none;
-    border-radius: 3px;
-    min-height: 0;
-    margin: 0.2em 0.3em 0.2em 0.3em;
 }
 
-/* The whole bar */
-#waybar {
-    /*background: @bg;*/
-    background-color: #1b1f1c;
-    /*color: @light;*/
-    color: #f8f8f8;
+window#waybar {
+    background-color: rgba(0,0,0,0.8);
+    border-bottom: 0px solid #ffffff;
+    border-radius: 13px;
+    color: #ffffff; 
+    background: transparent;
     transition-property: background-color;
-    transition-duration: 0.5s;
-    /*border-top: 8px transparent;*/
-    border-radius: 15px;
-    margin: 0px 0px;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
-}
-
-#workspaces button {
-  padding: 0 0px;
-  color: #1b1f1c;
-  background-color: transparent;
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each workspace name */
-  border: none;
-  border-radius: 0;
-}
-
-#workspaces button.focused {
-  background-color: transparent;
-}
-#workspace button.hover {
-  background-color: transparent;
-}
-#workspaces button.active {
-  color: #a9c7bb;
-}
-
-#workspaces button.urgent {
-  background-color: #ff0400;
+    transition-duration: .5s;
+    opacity: 0.9;
 }
 
 #window {
-  /* border-radius: 20px; */
-  /* padding-left: 10px; */
-  /* padding-right: 10px; */
-  color: #64727d;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:normal;
 }
 
-/* Each module */
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+#custom-appmenu,
+#mpris,
+#workspaces,
+#window,
 #clock,
-#custom-clock,
-#cpu,
-#memory,
+#custom-ram_cpu,
 #temperature,
 #network,
-#pulseaudio,
-#custom-media,
 #tray,
-#mode,
-#hyprland-window,
-#idle_inhibitor,
-#mpd,
-#custom-power-menu,
-#custom-spotify {
-  padding: 0px 7px;
-  color: #a9c7bb;
-  /* color: #bf616a; */
-  border-radius: 13px;
-  background-color: #495355;
+#backlight,
+#pulseaudio,
+#battery  {
+    background-color: #2d2c2c;
+    font-size: 16px;
+    color: #ffffff;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 2px solid white;
+    border-radius: 13px;
 }
 
-#window,
+#workspaces button {/*
+    padding-left: 15px;
+    padding-right: 15px;*/
+    margin: 0px 3px;
+    border-radius: 13px;
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+    font-size:13px;
+}
+
 #workspaces {
-  border-radius: 10px;
-  padding: 0px 10px;
-  background-color: #495355;
-}
-
-#cpu {
-  color: #a9c7bb;
-  background-color: #495355;
-}
-
-#memory {
-  color: #a9c7bb;
-  background-color: #495355;
-}
-
-#custom-power-menu {
-  border-radius: 9.5px;
-  background-color: #1b242b;
-  border-radius: 7.5px;
-  padding: 0 0px;
-}
-
-#custom-launcher {
-  background-color: #1b242b;
-  color: #6a92d7;
-  border-radius: 7.5px;
-  padding: 0 0px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-#pulseaudio {
-  color: #a9c7bb;
-}
-
-#clock {
-  color: #a9c7bb;
-  /* background-color: #14141e; */
-}
-
-@keyframes blink {
-  to {
-    background-color: rgba(30, 34, 42, 0.5);
-    color: #abb2bf;
-  }
-}
-
-
-label:focus {
-  background-color: #000000;
-}
-
-#network {
-  color: #a9c7bb;
-}
-
-#network.disconnected {
-  color: #f53c3c;
-}
-
-#custom-media {
-  background-color: transparent;
-  color: #c8d2e0;
-  min-width: 10px;
-}
-
-#custom-media.custom-spotify {
-  background-color: transparent;
-}
-
-#custom-clock {
-  background-color: transparent;
-}
-
-#custom-media.custom-vlc {
-  background-color: transparent;
-}
-
-#temperature {
-  background-color: #f0932b;
-}
-
-#temperature.critical {
-  background-color: #eb4d4b;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #tray > .passive {
-  -gtk-icon-effect: dim;
+    -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-  background-color: transparent;
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
 }
 
-#idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #2d3436;
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
 }
 
-#keyboard-state {
-  background: #97e1ad;
-  color: #000000;
-  padding: 0 0px;
-  margin: 0 5px;
-  min-width: 16px;
+#network.ethernet {
+    color: #ffffff;
 }
 
-#keyboard-state > label {
-  padding: 0 0px;
+#network.wifi {
+    color: #ffffff;
 }
 
-#keyboard-state > label.locked {
-  background: rgba(0, 0, 0, 0.2);
+#network.disconnected {
+    background-color: #f53c3c;
 }
 
-#hyprland-window{
-  background-color: transparent;
+#bluetooth.on, #bluetooth.connected {
+    font-size: 16px;
+    color: #ffffff;
+    border-radius: 13px;
+    padding: 2px 10px 0px 10px;
+    margin: 5px 15px 5px 0px;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+}
+
+@keyframes blink {
+    to {
+        color: #ffffff;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
