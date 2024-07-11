@@ -1,0 +1,121 @@
+/* -----------------------------------------------------
+ * waybar 
+ * ----------------------------------------------------- */
+
+ * {
+    font-family: "JetBrains Mono Medium";
+    border: none;
+}
+
+window#waybar {
+    background: transparent;
+    background-color: #1e1e2e;
+    border: 3px solid #6c7086;
+    color: #cdd6f4;
+    border-radius: 17px;
+    opacity: 0.9;
+    transition: all 350ms;
+}
+/*
+#workspaces {
+    color: #000000;
+    font-size: 19px;
+    padding: 2px 14px 2px 14px;
+    transition: 300ms all;
+}*/
+
+#workspaces button {
+    color: #cdd6f4;
+}
+
+#workspaces button.urgent {
+    background-color: #550000;
+}
+#workspaces button:hover {
+    background-color: #313244;
+}
+#workspaces button.active {
+    background-color: #45475a;
+    font-size: 24px;
+}
+
+#workspaces,
+#custom-appmenu,
+#mpris,
+#window,
+#clock,
+#memory,
+#cpu,
+#temperature,
+#network,
+#backlight,
+#pulseaudio,
+#battery  {
+    font-size: 14px;
+    padding: 2px 6px 2px 6px;
+    margin: 6px 0 6px 0;
+    transition: 200ms all;
+}
+
+#custom-appmenu:hover,
+#mpris:hover,
+#window:hover,
+#clock:hover,
+#memory:hover,
+#cpu:hover,
+#temperature:hover,
+#network:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#battery:hover  {
+    color: #b4befe;
+}
+
+#mpris {
+    padding-top: 16px;
+}
+
+#clock {
+    padding-bottom: 16px;
+}
+
+/*
+#network.ethernet {
+    color: #000000;
+}
+
+#network.wifi {
+    color: #000000;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+#bluetooth.on, #bluetooth.connected {
+    color: #000000;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+}
+
+#battery.charging, #battery.plugged {
+    color: #000000;
+}
+
+@keyframes blink {
+    to {
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #000000;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+*/

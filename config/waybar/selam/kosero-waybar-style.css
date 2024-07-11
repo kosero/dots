@@ -1,0 +1,109 @@
+/* -----------------------------------------------------
+ * waybar 
+ * ----------------------------------------------------- */
+
+ * {
+    font-family: "Noto Sans Regular";
+    border: none;
+}
+
+window#waybar {
+    background: transparent;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    color: #000000;
+    border-radius: 17px;
+    opacity: 0.9;
+}
+/*
+#workspaces {
+    color: #000000;
+    font-size: 19px;
+    padding: 2px 14px 2px 14px;
+    transition: 300ms all;
+}*/
+
+#workspaces button {
+    color: #000000;
+}
+
+#workspaces button.urgent {
+    background-color: #550000;
+}
+#workspaces button:hover {
+    background-color: rgba(211, 211, 211, 0.25);
+    border-radius: 27px;
+}
+#workspaces button.active {
+    background-color: rgba(211, 211, 211, 1);
+    border-radius: 50px;
+}
+
+#workspaces,
+#custom-appmenu,
+#mpris,
+#window,
+#clock,
+#memory,
+#cpu,
+#temperature,
+#network,
+#cava,
+#tray,
+#backlight,
+#pulseaudio,
+#battery  {
+    /*background-color: #f53c3c;*/
+    color: #000000;
+    font-size: 19px;
+    padding: 2px 14px 2px 14px;
+    margin: 6px 0 6px 0;
+    transition: 300ms all;
+}
+
+#custom-appmenu {
+    margin: 6px 10px 6px 10px;
+}
+
+#tray {
+    margin: 6px 10px 6px 10px;
+}
+
+#network.ethernet {
+    color: #000000;
+}
+
+#network.wifi {
+    color: #000000;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+#bluetooth.on, #bluetooth.connected {
+    color: #000000;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+}
+
+#battery.charging, #battery.plugged {
+    color: #000000;
+}
+
+@keyframes blink {
+    to {
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #000000;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

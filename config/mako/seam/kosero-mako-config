@@ -1,0 +1,24 @@
+# vim:fileencoding=utf-8:ft=dosini:fdm=marker foldlevel=0
+
+# Appearance {{{
+font=Inter Medium 11
+width=350
+padding=10
+margin=10
+anchor=top-center
+border-size=2
+border-radius=8
+icon-path=/usr/share/icons/Arc-X-D
+max-icon-size=65
+
+background-color=#ffffff
+border-color=#1e1e1e
+text-color=#1e1e1e
+# }}}
+
+default-timeout=5000
+on-button-middle=exec makoctl menu -n "$id" wofi --dmenu -p 'Select action: '
+
+[urgency=high]
+border-color=#f7768e
+ignore-timeout=1
