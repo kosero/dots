@@ -13,5 +13,5 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-sudo pacman -Syy hyprland xdg-desktop-portal-hyprland wofi mako neovim vim waybar ttf-jetbrains-mono swaybg alacritty --noconfirm
+sudo pacman -Syy hyprland xdg-desktop-portal-hyprland wofi mako neovim vim waybar nautilus ttf-jetbrains-mono swaybg alacritty --noconfirm
 
