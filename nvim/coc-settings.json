@@ -1,0 +1,59 @@
+{
+  "languageserver": {
+    "rust-analyzer": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"],
+      "trace.server": "verbose"
+    },
+    "lua": {
+      "command": "lua-language-server",
+      "filetypes": ["lua"],
+      "rootPatterns": [".git/"],
+      "settings": {
+        "Lua": {
+          "runtime": {
+            "version": "LuaJIT",
+            "path": ["?.lua", "?/init.lua", "?/?.lua"]
+          },
+          "diagnostics": {
+            "globals": ["vim"]
+          },
+          "workspace": {
+            "library": [
+              "/usr/share/nvim/runtime/lua",
+              "/usr/share/nvim/runtime/lua/vim",
+              "/usr/share/nvim/runtime/lua/vim/lsp"
+            ],
+            "checkThirdParty": false
+          },
+          "telemetry": {
+            "enable": false
+          }
+        }
+      }
+    },
+    "pyright": {
+      "command": "pyright-langserver",
+      "args": ["--stdio"],
+      "filetypes": ["python"],
+      "trace.server": "verbose",
+      "settings": {
+        "python": {
+          "analysis": {
+            "autoSearchPaths": true,
+            "useLibraryCodeForTypes": true
+          }
+        }
+      }
+    }
+  },
+  "rust-analyzer": {
+    "cargo": {
+      "loadOutDirsFromCheck": true
+    },
+    "procMacro": {
+      "enable": true
+    }
+  }
+}

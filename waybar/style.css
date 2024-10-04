@@ -1,0 +1,121 @@
+ * {
+    font-family: "Jetbrains Mono";
+    border: none;
+    color: #ebdbb2;
+    font-size: 19px;
+}
+
+/* #EBEEF2
+ * #2F3640
+ * #536173
+ */
+
+
+window#waybar {
+  background: #1d2021;
+}
+
+#workspaces {
+    padding: 2px 14px 2px 14px;
+    border-radius: 12px;
+}
+
+#workspaces button.urgent {
+    background-color: #550000;
+}
+
+#workspaces button:hover {
+    background-color: rgba(211, 211, 211, 0.25);
+    border-radius: 27px;
+}
+
+/*
+#workspaces button.active {
+    color: #ebdbb2;
+}
+*/
+
+#custom-appmenu,
+#mpris,
+#window,
+#clock,
+#memory,
+#cpu,
+#temperature,
+#network,
+#cava,
+#tray,
+#backlight,
+#pulseaudio,
+#battery  {
+    background-color: #282828;
+    margin: 5px;
+    margin-bottom: 10px;
+    padding: 2px 14px 2px 14px;
+    border: 0.1px solid #ebdbb2;
+    border-radius: 8px; 
+    transition: 300ms all;
+}
+
+#mpris {
+    padding: 0px 10px 0px 10px;
+}
+
+#memory, #cpu {
+    padding: 2px 15px 2px 15px;
+}
+
+#custom-appmenu:hover,
+#mpris:hover,
+#window:hover,
+#clock:hover,
+#memory:hover,
+#cpu:hover,
+#temperature:hover,
+#network:hover,
+#cava:hover,
+#tray:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#battery:hover {
+    background-color: #3c3836;
+    color: #fbf1c7;
+    border: 0.1px solid #fbf1c7;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+@keyframes blink {
+    to {
+        color: #ebdbb2;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

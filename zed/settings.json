@@ -1,0 +1,35 @@
+{
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "ui_font_size": 17,
+  "buffer_font_size": 16,
+  "buffer_font_family": "JetBrains Mono",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Gruvbox Material"
+  },
+  "lsp": {
+    "discord_presence": {
+      "initialization_options": {
+        "base_icons_url": "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/",
+
+        "state": "Working on {filename}",
+        "details": "In {workspace}",
+
+        "large_image": "{base_icons_url}/{language}.png",
+        "large_text": "{language:u}",
+
+        "small_image": "https://i.imgur.com/50gvL1U.png",
+        "small_text": "dusunenTux",
+
+        "rules": {
+          "mode": "blacklist",
+          "paths": ["absolute path"]
+        },
+
+        "git_integration": true
+      }
+    }
+  }
+}
