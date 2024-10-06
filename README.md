@@ -1,2 +1,2 @@
 ## Preview
-![](./.assets/desktop.png)
+![](./.github/desktop.png)
