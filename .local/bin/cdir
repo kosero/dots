@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+mkdir -p ./src ./include
+touch ./src/main.c ./Makefile
+
+cat << EOF > ./Makefile
+CC = gcc
+CFLAGS = -I./include
+LDFLAGS =
+
+SRC = \$(wildcard src/*.c)
+OBJ = \$(SRC:.c=.o)
+TARGET = a.out
+
+all: \$(TARGET)
+
+\$(TARGET): \$(OBJ)
+	\$(CC) -o \$(TARGET) \$(OBJ) \$(LDFLAGS)
+
+src/%.o: src/%.c
+	\$(CC) \$(CFLAGS) -c \$< -o \$@
+
+clean:
+	rm -f \$(OBJ) \$(TARGET)
+
+.PHONY: all clean
+EOF

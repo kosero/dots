@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+mkdir -p ./src
+touch ./main.py ./src/nerv.py ./requirements.txt
+env python3 -m venv venv
+
+cat << EOF > ./main.py
+def main():
+    print("NERV")
+
+if __name__ == "__main__":
+    main()
+EOF
