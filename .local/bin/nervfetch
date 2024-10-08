@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+version="0.1.0"
+
+unicode="▅"
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[0;37m'
+GRAY='\033[1;30m'
+NC='\033[0m'
+
+UPTIME=$(uptime -p | sed 's/up //')
+RAM=$(free -h | awk '/Mem:/ {print $2, $3}')
+KERNEL=$(uname -r)
+SHELL=${SHELL##*/}
+DISTRO=$(grep '^PRETTY_NAME=' /etc/os-release | cut -d '"' -f2)
+WM=${XDG_CURRENT_DESKTOP:-"N/A"}
+TERM=$(ps -o comm= -p "$(($(ps -o ppid= -p "$(($(ps -o sid= -p "$$")))")))")
+COLORS="${RED}$unicode${NC}${YELLOW}$unicode${NC}${GREEN}$unicode${NC}${CYAN}$unicode${NC}${BLUE}$unicode${NC}${PURPLE}$unicode${NC}"
+
+help() {
+printf "${RED}Usage:${NC}
+${YELLOW}-v, --version
+    prints Nervfetch version
+-h, --help
+    prints this message${NC}
+"
+}
+
+fetch() {
+    printf "$RED#![DISTRO($NC$DISTRO$RED)]$NC\n"
+    printf "$RED#![KERNEL($NC$KERNEL$RED)]$NC\n"
+    printf "$RED#![WM($NC$WM$RED)]$NC\n"
+    printf "$RED#![TERM($NC$TERM$RED)]$NC\n"
+    printf "$RED#![SHELL($NC$SHELL$RED)]$NC\n"
+    printf "$RED#![UPTIME($NC$UPTIME$RED)]$NC\n"
+    printf "$RED#![RAM($NC$RAM$RED)]$NC\n"
+    # printf "$COLORS\n"
+}
+
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -v | --version)
+            printf "${RED}Nervfetch $version\n${NC}" && exit 0
+            ;;
+        -h | --help)
+            help && exit 0
+            ;;
+    esac
+done
+
+fetch && exit 0
+
