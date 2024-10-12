@@ -2,6 +2,13 @@
 mkdir -p ./src ./include
 touch ./src/main.c ./Makefile
 
+cat << EOF > ./src/main.c
+int main()
+{
+    printf("NERV");
+}
+EOF
+
 cat << EOF > ./Makefile
 CC = gcc
 CFLAGS = -I./include
