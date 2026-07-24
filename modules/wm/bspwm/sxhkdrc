@@ -12,7 +12,7 @@ super + e
 
 # web browser
 super + w
-  chromium
+  firefox
 
 # screenshot
 super + shift + s

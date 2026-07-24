@@ -1,7 +1,12 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   imports = [
-    ../ly.nix
+    ../../services/ly.nix
   ];
 
   services.xserver = {

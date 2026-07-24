@@ -1,16 +1,15 @@
 { pkgs, ... }:
 {
-  imports =
-    [
-      ./modules/services
-      ./modules/wm/bspwm
-      ./modules/users.nix
-      ./modules/networking.nix
-      ./modules/fish.nix
-      ./modules/pkgs
-      ./modules/font.nix
-      ./modules/cachix.nix
-    ];
+  imports = [
+    ./modules/services
+    ./modules/wm/bspwm
+    ./modules/users.nix
+    ./modules/networking.nix
+    ./modules/fish.nix
+    ./modules/pkgs
+    ./modules/font.nix
+    ./modules/cachix.nix
+  ];
 
   boot.initrd.systemd.enable = true;
   boot.loader.systemd-boot.enable = true;
@@ -31,7 +30,10 @@
     LC_TIME = "tr_TR.UTF-8";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.auto-optimise-store = true;
 
   nixpkgs.config.allowUnfree = true;

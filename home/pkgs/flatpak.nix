@@ -9,6 +9,10 @@
     ];
     packages = [
       "net.davidotek.pupgui2"
+      "com.usebottles.bottles"
+      "com.discordapp.Discord"
     ];
   };
+
+  services.discord-flatpak-rpc.enable = true;
 }

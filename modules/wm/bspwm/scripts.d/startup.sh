@@ -13,10 +13,6 @@ run feh --bg-fill "$HOME/.config/bspwm/wallpapers/sunako_everforest.png"
 run copyq
 run dunst
 
-# xset -dpms
-# xset s 10800 10800
-# xss-lock -- systemctl poweroff &
-
 run $HOME/.config/bspwm/scripts.d/low_bat_notifier.sh &
 run $HOME/.config/bspwm/scripts.d/idle-poweroff.sh &
 run $HOME/.config/bspwm/polybar/launch.sh &

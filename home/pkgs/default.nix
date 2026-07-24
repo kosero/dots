@@ -6,6 +6,7 @@
     ./rofi.nix
     ./flatpak.nix
     ./vesktop.nix
+    ./discord-flatpak-rpc-service.nix
   ];
 
   home.packages = with pkgs; [
@@ -16,7 +17,6 @@
     unityhub
     godot
     aseprite
-    bottles
     firefox
     ungoogled-chromium
     blender

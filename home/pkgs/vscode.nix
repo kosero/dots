@@ -28,16 +28,18 @@ in
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps; [
-      llvmPackages.clang-tools
-      nixd
-      nixfmt-rfc-style
-      rust-analyzer
-      cargo
-      rustc
-      gcc
-      pkg-config
-    ]);
+    package = pkgs.vscode.fhsWithPackages (
+      ps: with ps; [
+        llvmPackages.clang-tools
+        nixd
+        nixfmt-rfc-style
+        rust-analyzer
+        cargo
+        rustc
+        gcc
+        pkg-config
+      ]
+    );
 
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
